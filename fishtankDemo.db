@@ -1,0 +1,186 @@
+# "Tank" Simulation
+
+record(ao, "TST{Room:$(Num)}T-Sp")               #$(user):room
+{
+    field(DESC, "Room Temperature")
+    field(EGU, "C")
+    field(HOPR, "40")
+    field(LOPR, "0")
+    field(DRVL, "0")
+    field(DRVH, "40")
+    field(DOL, "25")
+    field(PINI, "YES")
+}
+
+# This ao is used in two modes:
+# supervisory: user can adjust voltage
+# closed_loop: PID (in separate control.db) sets voltage
+# In any case: Update heater power in response to voltage change
+# When PID is INVALID, go back to 0 voltage
+record(ao, "TST{Htr:$(Num)}V-Sp")                #$(user):heat_V
+{
+    field(DESC, "Heater Voltage")
+    field(EGU, "V")
+    field(DRVL,"0")
+    field(DRVH,"110")
+    field(HSV, "MINOR")
+    field(HIGH,"110")
+    field(DOL, "TST{Tank:$(Num)}T-PID MS")
+    field(OMSL,"closed_loop")
+    field(IVOA, "Set output to IVOV")
+    field(IVOV, "0")
+}
+
+record(mbbi, "TST{Htr:$(Num)}Pwr-Cmd") {         #new!
+    field(DESC, "Heater Power State")
+    field(ZRST, "On")
+    field(ONST, "Off")
+    field(TWST, "Stby")
+    field(THST, "Error")
+    field(ZRSV, "NO_ALARM")
+    field(ONSV, "NO_ALARM")
+    field(TWSV, "MINOR")
+    field(THSV, "MAJOR")
+}
+
+record(calc, "TST{Htr:$(Num)}Output-I")          #$(user):heat_Pwr
+{
+    field(DESC, "Heater Power Output")
+    field(EGU, "W")
+    field(INPA, "TST{Htr:$(Num)}V-Sp PP NMS")
+    field(INPB, "TST{Htr:$(Num)}Pwr-Cmd PP")
+    field(INPC, "TST{Htr:$(Num)}Output-I.VAL")
+    # ~1100 Watt heater when run with 110V:
+    # P = U I = U^2 / R,  R~12 Ohm
+    #field(CALC, "A*A/12.1")
+    field(CALC, "B==0?(A*A/12.1):B==1?0:B==2?10:C")
+}
+
+# Every second, calculate new temperature
+# based on current temperature, room temperature and heater
+# A - current temperature
+# B - room temperature
+# C - heater power
+# D - isolation factor (water <-> room)
+# E - heat capacity (would really depend on water volume)
+#
+# Very roughly with
+# T(n+1) = T(n) + [Troom-T(n)]*Isolation_factor + heater_pwr * heat_capacity
+record(calc, "TST{Tank:$(Num)}T-Calc")           #$(user):tank_clc
+{
+    field(DESC,"Water Tank Simulation")
+    # Water temperatures in deg. C go from 0 to 100 degC
+    field(SCAN,"1 second")
+    field(INPA,"TST{Tank:$(Num)}T-Calc.VAL")
+    field(INPB,"TST{Room:$(Num)}T-Sp")
+    field(INPC,"TST{Htr:$(Num)}Output-I PP NMS")
+    field(INPD,"0.01")
+    field(INPE,"0.001")
+    field(PREC,"4")
+    field(CALC,"A+(B-A)*D+C*E")
+    field(FLNK,"TST{Tank:$(Num)}T-I")
+}
+
+# Simulate "broken sensor"
+record(bi, "TST{Sensor:$(Num)}Sts")              #$(user):sensor
+{
+    field(DESC, "Sensor Simulation")
+    field(ZNAM, "OK")
+    field(ONAM, "Broken")
+    field(OSV,  "MAJOR")
+    field(PINI, "YES")
+    field(FLNK, "TST{Tank:$(Num)}T-I")
+}
+
+# Tank temperature as measured by
+# (possibly broken) sensor
+record(calc, "TST{Tank:$(Num)}T-I")              #$(user):tank
+{
+    field(DESC, "Tank Temperature or INVALID")
+    field(EGU,  "C")
+    field(PREC, "1")
+    field(LOPR, "0")
+    field(HOPR, "100")
+    field(LOLO, "-100")
+    field(LOW,  "0")
+    field(HIGH, "70")
+    field(HIHI, "100")
+    field(LLSV, "INVALID")
+    field(LSV,  "MINOR")
+    field(HSV,  "MINOR")
+    field(HHSV, "MAJOR")
+    field(INPA, "TST{Sensor:$(Num)}Sts")
+    field(INPB, "TST{Tank:$(Num)}T-Calc MS")
+    field(INPC, "-100")
+    field(CALC, "A?C:B")
+}
+
+
+# "Control" for "Tank" Simulation
+record(ao, "TST{Tank:$(Num)}T-Sp")               #$(user):setpoint
+{
+    field(DESC, "Temperature Setpoint")
+    field(EGU, "C")
+    field(HOPR, "100")
+    field(LOPR, "0")
+    field(DRVL, "0")
+    field(DRVH, "100")
+    field(HIHI, "90")
+    field(HIGH, "80")
+    field(LOW , "0")
+    field(LOLO, "0")
+    field(PREC, "1")
+    field(DOL,  "30")
+    field(PINI, "YES")
+}
+
+# Temperature error
+# A - current temperature
+# B - setpoint
+record(calc, "TST{Tank:$(Num)}T-Err")            #$(user):error
+{
+    field(DESC, "Temperature Error")
+    field(SCAN, ".5 second")
+    field(INPA, "TST{Tank:$(Num)}T-Sp")
+    field(INPB, "TST{Tank:$(Num)}T-I MS")
+    field(CALC, "A-B")
+    field(PREC, "1")
+    field(FLNK, "TST{Tank:$(Num)}T-Int")
+}
+
+# Integrate error (A) but assert that
+# it stays within limits (C)
+record(calc, "TST{Tank:$(Num)}T-Int")            #$(user):integral
+{
+    field(DESC, "Integrate Error for PID")
+    field(PREC, "3")
+    field(INPA, "TST{Tank:$(Num)}T-Err PP MS")
+    field(INPB, "TST{Tank:$(Num)}T-Int")
+    field(INPC, "20.0")
+    field(CALC, "(B+A>C)?C:(B+A<-C)?(-C):(B+A)")
+    field(FLNK, "TST{Tank:$(Num)}T-PID")
+}
+
+# Every second, calculate new heater voltage via PID (PI)
+# A - Kp
+# B - error
+# C - Ki
+# D - error integral
+record(calc, "TST{Tank:$(Num)}T-PID")            #$(user):PID
+{
+    field(DESC, "Water Tank PID")
+    field(PREC, "3")
+    field(LOPR, "-1000")
+    field(HOPR, "1000")
+    field(HIHI, "900")
+    field(HIGH, "500")
+    field(LOW , "-500")
+    field(LOLO, "-900")
+    field(INPA, "10.0")
+    field(INPB, "TST{Tank:$(Num)}T-Err MS")
+    field(INPC, "5.0")
+    field(INPD, "TST{Tank:$(Num)}T-Int MS")
+    field(CALC, "A*B+C*D")
+}
+
+
