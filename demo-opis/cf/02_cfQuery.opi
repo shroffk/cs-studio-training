@@ -58,7 +58,7 @@
     </fg_gradient_color>
     <fill_level>0.0</fill_level>
     <font>
-      <opifont.name fontName="Segoe UI" height="9" style="0">Default</opifont.name>
+      <opifont.name fontName="Cantarell" height="11" style="0">Default</opifont.name>
     </font>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
@@ -105,7 +105,7 @@ $(pv_value)</tooltip>
     <border_width>1</border_width>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Segoe UI" height="17" style="1">Header 1</opifont.name>
+      <opifont.name fontName="Cantarell" height="19" style="1">Header 1</opifont.name>
     </font>
     <foreground_color>
       <color red="255" green="255" blue="255" />
@@ -159,7 +159,7 @@ $(pv_value)</tooltip>
     </fg_gradient_color>
     <fill_level>0.0</fill_level>
     <font>
-      <opifont.name fontName="Segoe UI" height="9" style="0">Default</opifont.name>
+      <opifont.name fontName="Cantarell" height="11" style="0">Default</opifont.name>
     </font>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
@@ -205,7 +205,7 @@ $(pv_value)</tooltip>
     <border_width>1</border_width>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Segoe UI" height="9" style="0">Default</opifont.name>
+      <opifont.name fontName="Cantarell" height="11" style="0">Default</opifont.name>
     </font>
     <foreground_color>
       <color red="0" green="0" blue="0" />
@@ -257,7 +257,7 @@ Data expression (VNumberArray):&#xD;
     <border_width>1</border_width>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Segoe UI" height="9" style="0">Default</opifont.name>
+      <opifont.name fontName="Cantarell" height="11" style="0">Default</opifont.name>
     </font>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
@@ -306,7 +306,7 @@ Data expression (VNumberArray):&#xD;
     <border_width>1</border_width>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Segoe UI" height="9" style="0">Default</opifont.name>
+      <opifont.name fontName="Cantarell" height="11" style="0">Default</opifont.name>
     </font>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
@@ -350,14 +350,14 @@ Data expression (VNumberArray):&#xD;
     <data_formula>=columnOf(pvs(columnOf(cfQuery("*XF:31*Mtr* handle=Readback"), "Name")),"Value")</data_formula>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Segoe UI" height="9" style="0">Default</opifont.name>
+      <opifont.name fontName="Cantarell" height="11" style="0">Default</opifont.name>
     </font>
     <foreground_color>
       <color red="192" green="192" blue="192" />
     </foreground_color>
     <height>313</height>
-    <highlight_selection_value>false</highlight_selection_value>
-    <mouse_selection_method>0</mouse_selection_method>
+    <highlight_selection_value>true</highlight_selection_value>
+    <mouse_selection_method>1</mouse_selection_method>
     <name>Histogram Graph</name>
     <rules />
     <scale_options>
@@ -398,7 +398,7 @@ Data expression (VNumberArray):&#xD;
     <border_width>1</border_width>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Segoe UI" height="9" style="0">Default</opifont.name>
+      <opifont.name fontName="Cantarell" height="11" style="0">Default</opifont.name>
     </font>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
@@ -447,7 +447,7 @@ $(pv_value)</tooltip>
     <border_width>1</border_width>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Segoe UI" height="9" style="0">Default</opifont.name>
+      <opifont.name fontName="Cantarell" height="11" style="0">Default</opifont.name>
     </font>
     <foreground_color>
       <color red="0" green="0" blue="0" />
