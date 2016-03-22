@@ -29,7 +29,7 @@
   <snap_to_geometry>true</snap_to_geometry>
   <widget_type>Display</widget_type>
   <width>600</width>
-  <wuid>1cb4e129:1539ffb7e5f:-6bad</wuid>
+  <wuid>-21a738d9:153a06b8e3c:-7bb0</wuid>
   <x>-1</x>
   <y>-1</y>
   <widget typeId="org.csstudio.opibuilder.widgets.RoundedRectangle" version="1.0.0">
@@ -88,7 +88,7 @@ $(pv_value)</tooltip>
     <visible>true</visible>
     <widget_type>Rounded Rectangle</widget_type>
     <width>589</width>
-    <wuid>1cb4e129:1539ffb7e5f:-6b58</wuid>
+    <wuid>-21a738d9:153a06b8e3c:-7b53</wuid>
     <x>6</x>
     <y>6</y>
   </widget>
@@ -121,15 +121,15 @@ $(pv_value)</tooltip>
     </scale_options>
     <scripts />
     <show_scrollbar>false</show_scrollbar>
-    <text>ChannelFinder Examples : cfQuery</text>
+    <text>ChannelFinder Examples</text>
     <tooltip></tooltip>
     <transparent>true</transparent>
     <vertical_alignment>1</vertical_alignment>
     <visible>true</visible>
     <widget_type>Label</widget_type>
-    <width>571</width>
+    <width>577</width>
     <wrap_words>true</wrap_words>
-    <wuid>1cb4e129:1539ffb7e5f:-6b57</wuid>
+    <wuid>-21a738d9:153a06b8e3c:-7b52</wuid>
     <x>12</x>
     <y>12</y>
   </widget>
@@ -188,7 +188,7 @@ $(pv_value)</tooltip>
     <visible>true</visible>
     <widget_type>Rounded Rectangle</widget_type>
     <width>589</width>
-    <wuid>1cb4e129:1539ffb7e5f:-6b56</wuid>
+    <wuid>-21a738d9:153a06b8e3c:-7b51</wuid>
     <x>6</x>
     <y>84</y>
   </widget>
@@ -221,7 +221,12 @@ $(pv_value)</tooltip>
     </scale_options>
     <scripts />
     <show_scrollbar>false</show_scrollbar>
-    <text>In addition to the channel widget there is a cfQuery function to access channelfinder information.</text>
+    <text>Using cfQuery, channelfinder data can be used with any generic widgets.&#xD;
+&#xD;
+Data expression (VNumberArray):&#xD;
+=columnOf(pvs(columnOf(cfQuery("*XF:31*Mtr* handle=Readback"), "Name")),"Value")&#xD;
+&#xD;
+</text>
     <tooltip></tooltip>
     <transparent>true</transparent>
     <vertical_alignment>0</vertical_alignment>
@@ -229,16 +234,22 @@ $(pv_value)</tooltip>
     <widget_type>Label</widget_type>
     <width>577</width>
     <wrap_words>true</wrap_words>
-    <wuid>1cb4e129:1539ffb7e5f:-6b55</wuid>
+    <wuid>-21a738d9:153a06b8e3c:-7b50</wuid>
     <x>12</x>
     <y>90</y>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.VTableDisplay" version="1.0.0">
-    <actions hook="false" hook_all="false" />
-    <background_color>
-      <color red="240" green="240" blue="240" />
-    </background_color>
-    <border_alarm_sensitive>true</border_alarm_sensitive>
+  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>01_channel_tree.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>0</mode>
+        <description></description>
+      </action>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -248,13 +259,16 @@ $(pv_value)</tooltip>
     <font>
       <opifont.name fontName="Segoe UI" height="9" style="0">Default</opifont.name>
     </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
-    <height>100</height>
-    <name>VTable Display</name>
+    <height>34</height>
+    <image></image>
+    <name>Action Button</name>
+    <push_action_index>0</push_action_index>
     <pv_name></pv_name>
-    <pv_result_prefix></pv_result_prefix>
+    <pv_value />
     <rules />
     <scale_options>
       <width_scalable>true</width_scalable>
@@ -262,18 +276,119 @@ $(pv_value)</tooltip>
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <scripts />
+    <style>1</style>
+    <text>Open next demo screen</text>
+    <toggle_button>false</toggle_button>
+    <tooltip>Open next demo screen</tooltip>
+    <visible>true</visible>
+    <widget_type>Action Button</widget_type>
+    <width>295</width>
+    <wuid>-21a738d9:153a06b8e3c:-7b4e</wuid>
+    <x>300</x>
+    <y>534</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>../main.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>0</mode>
+        <description></description>
+      </action>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Segoe UI" height="9" style="0">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>34</height>
+    <image></image>
+    <name>Action Button_1</name>
+    <push_action_index>0</push_action_index>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <style>1</style>
+    <text>Home</text>
+    <toggle_button>false</toggle_button>
+    <tooltip>Open next demo screen</tooltip>
+    <visible>true</visible>
+    <widget_type>Action Button</widget_type>
+    <width>295</width>
+    <wuid>-21a738d9:153a06b8e3c:-7b4d</wuid>
+    <x>6</x>
+    <y>534</y>
+  </widget>
+  <widget typeId="org.csstudio.graphene.opiwidgets.HistogramGraph2D" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <background_color>
+      <color red="240" green="240" blue="240" />
+    </background_color>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <configurable>false</configurable>
+    <data_formula>=columnOf(pvs(columnOf(cfQuery("*XF:31*Mtr* handle=Readback"), "Name")),"Value")</data_formula>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Segoe UI" height="9" style="0">Default</opifont.name>
+    </font>
+    <foreground_color>
+      <color red="192" green="192" blue="192" />
+    </foreground_color>
+    <height>313</height>
+    <highlight_selection_value>false</highlight_selection_value>
+    <mouse_selection_method>0</mouse_selection_method>
+    <name>Histogram Graph</name>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <selection_value_pv>loc://${DID}_Selection</selection_value_pv>
+    <show_axis>true</show_axis>
     <tooltip></tooltip>
     <visible>true</visible>
-    <widget_type>VTable Display</widget_type>
-    <width>100</width>
-    <wuid>1cb4e129:1539ffb7e5f:-6ac0</wuid>
-    <x>8</x>
+    <widget_type>Histogram Graph</widget_type>
+    <width>589</width>
+    <wuid>-21a738d9:153a085a847:-4dc7</wuid>
+    <x>6</x>
+    <x_axis_range>
+      <axisRange type="display" />
+    </x_axis_range>
     <y>162</y>
+    <y_axis_range>
+      <axisRange type="display" />
+    </y_axis_range>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.VTableDisplay" version="1.0.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
     <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <auto_size>false</auto_size>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <background_color>
-      <color red="240" green="240" blue="240" />
+      <color red="255" green="255" blue="255" />
     </background_color>
     <border_alarm_sensitive>true</border_alarm_sensitive>
     <border_color>
@@ -285,13 +400,19 @@ $(pv_value)</tooltip>
     <font>
       <opifont.name fontName="Segoe UI" height="9" style="0">Default</opifont.name>
     </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
-    <height>100</height>
-    <name>VTable Display_1</name>
-    <pv_name></pv_name>
-    <pv_result_prefix></pv_result_prefix>
+    <format_type>0</format_type>
+    <height>26</height>
+    <horizontal_alignment>0</horizontal_alignment>
+    <name>Text Update</name>
+    <precision>0</precision>
+    <precision_from_pv>true</precision_from_pv>
+    <pv_name>loc://${DID}_Selection</pv_name>
+    <pv_value />
+    <rotation_angle>0.0</rotation_angle>
     <rules />
     <scale_options>
       <width_scalable>true</width_scalable>
@@ -299,20 +420,26 @@ $(pv_value)</tooltip>
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <scripts />
-    <tooltip></tooltip>
+    <show_units>true</show_units>
+    <text>######</text>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <vertical_alignment>1</vertical_alignment>
     <visible>true</visible>
-    <widget_type>VTable Display</widget_type>
-    <width>100</width>
-    <wuid>1cb4e129:1539ffb7e5f:-6971</wuid>
-    <x>32</x>
-    <y>195</y>
+    <widget_type>Text Update</widget_type>
+    <width>589</width>
+    <wrap_words>false</wrap_words>
+    <wuid>-21a738d9:153a085a847:-4d7e</wuid>
+    <x>6</x>
+    <y>499</y>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.VTableDisplay" version="1.0.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
     <actions hook="false" hook_all="false" />
+    <auto_size>false</auto_size>
     <background_color>
-      <color red="240" green="240" blue="240" />
+      <color red="255" green="255" blue="255" />
     </background_color>
-    <border_alarm_sensitive>true</border_alarm_sensitive>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -323,12 +450,11 @@ $(pv_value)</tooltip>
       <opifont.name fontName="Segoe UI" height="9" style="0">Default</opifont.name>
     </font>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
-    <height>100</height>
-    <name>VTable Display_2</name>
-    <pv_name></pv_name>
-    <pv_result_prefix></pv_result_prefix>
+    <height>20</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <name>Label</name>
     <rules />
     <scale_options>
       <width_scalable>true</width_scalable>
@@ -336,49 +462,16 @@ $(pv_value)</tooltip>
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <scripts />
+    <text>Selected Value:</text>
     <tooltip></tooltip>
+    <transparent>true</transparent>
+    <vertical_alignment>1</vertical_alignment>
     <visible>true</visible>
-    <widget_type>VTable Display</widget_type>
-    <width>100</width>
-    <wuid>1cb4e129:1539ffb7e5f:-6933</wuid>
-    <x>115</x>
-    <y>232</y>
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.VTableDisplay" version="1.0.0">
-    <actions hook="false" hook_all="false" />
-    <background_color>
-      <color red="240" green="240" blue="240" />
-    </background_color>
-    <border_alarm_sensitive>true</border_alarm_sensitive>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <border_style>0</border_style>
-    <border_width>1</border_width>
-    <enabled>true</enabled>
-    <font>
-      <opifont.name fontName="Segoe UI" height="9" style="0">Default</opifont.name>
-    </font>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <height>100</height>
-    <name>VTable Display_3</name>
-    <pv_name></pv_name>
-    <pv_result_prefix></pv_result_prefix>
-    <rules />
-    <scale_options>
-      <width_scalable>true</width_scalable>
-      <height_scalable>true</height_scalable>
-      <keep_wh_ratio>false</keep_wh_ratio>
-    </scale_options>
-    <scripts />
-    <tooltip></tooltip>
-    <visible>true</visible>
-    <widget_type>VTable Display</widget_type>
-    <width>100</width>
-    <wuid>1cb4e129:1539ffb7e5f:-6836</wuid>
-    <x>150</x>
-    <y>294</y>
+    <widget_type>Label</widget_type>
+    <width>119</width>
+    <wrap_words>false</wrap_words>
+    <wuid>-21a738d9:153a085a847:-4d4f</wuid>
+    <x>6</x>
+    <y>480</y>
   </widget>
 </display>
