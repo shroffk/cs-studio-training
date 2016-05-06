@@ -10,7 +10,7 @@
   <background_color>
     <color red="240" green="240" blue="240" />
   </background_color>
-  <boy_version>5.1.0.201603192057</boy_version>
+  <boy_version>5.1.0.201604271456</boy_version>
   <foreground_color>
     <color red="192" green="192" blue="192" />
   </foreground_color>
@@ -241,7 +241,7 @@ Data expression (VNumberArray):&#xD;
   <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
     <actions hook="false" hook_all="false">
       <action type="OPEN_DISPLAY">
-        <path>01_channel_tree.opi</path>
+        <path>03_cfQuery.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
