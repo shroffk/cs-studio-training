@@ -19,7 +19,7 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <name></name>
+  <name>beast://Annunciator</name>
   <rules />
   <scripts />
   <show_close_button>true</show_close_button>
@@ -29,69 +29,9 @@
   <snap_to_geometry>true</snap_to_geometry>
   <widget_type>Display</widget_type>
   <width>600</width>
-  <wuid>11ff899c:13f52d757cc:-73d6</wuid>
+  <wuid>-798d9c07:154721fd7c4:-8000</wuid>
   <x>-1</x>
   <y>-1</y>
-  <widget typeId="org.csstudio.opibuilder.widgets.RoundedRectangle" version="1.0.0">
-    <actions hook="false" hook_all="false" />
-    <alarm_pulsing>false</alarm_pulsing>
-    <alpha>255</alpha>
-    <anti_alias>true</anti_alias>
-    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-    <background_color>
-      <color red="255" green="255" blue="128" />
-    </background_color>
-    <bg_gradient_color>
-      <color red="255" green="255" blue="187" />
-    </bg_gradient_color>
-    <border_alarm_sensitive>false</border_alarm_sensitive>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <border_style>0</border_style>
-    <border_width>1</border_width>
-    <corner_height>16</corner_height>
-    <corner_width>16</corner_width>
-    <enabled>true</enabled>
-    <fg_gradient_color>
-      <color red="255" green="255" blue="255" />
-    </fg_gradient_color>
-    <fill_level>0.0</fill_level>
-    <font>
-      <opifont.name fontName="Cantarell" height="11" style="0">Default</opifont.name>
-    </font>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-    <foreground_color>
-      <color red="255" green="0" blue="0" />
-    </foreground_color>
-    <gradient>true</gradient>
-    <height>145</height>
-    <horizontal_fill>true</horizontal_fill>
-    <line_color>
-      <color red="128" green="0" blue="255" />
-    </line_color>
-    <line_style>0</line_style>
-    <line_width>0</line_width>
-    <name>Example background</name>
-    <pv_name></pv_name>
-    <pv_value />
-    <rules />
-    <scale_options>
-      <width_scalable>true</width_scalable>
-      <height_scalable>true</height_scalable>
-      <keep_wh_ratio>false</keep_wh_ratio>
-    </scale_options>
-    <scripts />
-    <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-    <transparent>false</transparent>
-    <visible>true</visible>
-    <widget_type>Rounded Rectangle</widget_type>
-    <width>583</width>
-    <wuid>6c74ca29:13f5301bfa2:-1dc4</wuid>
-    <x>12</x>
-    <y>138</y>
-  </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.RoundedRectangle" version="1.0.0">
     <actions hook="false" hook_all="false" />
     <alarm_pulsing>false</alarm_pulsing>
@@ -148,7 +88,7 @@ $(pv_value)</tooltip>
     <visible>true</visible>
     <widget_type>Rounded Rectangle</widget_type>
     <width>589</width>
-    <wuid>11ff899c:13f52d757cc:-7134</wuid>
+    <wuid>bd33f00:15487abb48d:-7fbd</wuid>
     <x>6</x>
     <y>6</y>
   </widget>
@@ -181,148 +121,17 @@ $(pv_value)</tooltip>
     </scale_options>
     <scripts />
     <show_scrollbar>false</show_scrollbar>
-    <text>BOY Demo and Examples</text>
+    <text>BEAST Datasource Examples</text>
     <tooltip></tooltip>
     <transparent>true</transparent>
     <vertical_alignment>1</vertical_alignment>
     <visible>true</visible>
     <widget_type>Label</widget_type>
-    <width>571</width>
+    <width>577</width>
     <wrap_words>true</wrap_words>
-    <wuid>6c74ca29:13f52f683ab:-7f86</wuid>
+    <wuid>bd33f00:15487abb48d:-7fbc</wuid>
     <x>12</x>
     <y>12</y>
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
-    <actions hook="false" hook_all="false" />
-    <auto_size>false</auto_size>
-    <background_color>
-      <color red="255" green="255" blue="255" />
-    </background_color>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <border_style>0</border_style>
-    <border_width>1</border_width>
-    <enabled>true</enabled>
-    <font>
-      <opifont.name fontName="Cantarell" height="13" style="1">Header 3</opifont.name>
-    </font>
-    <foreground_color>
-      <color red="0" green="0" blue="0" />
-    </foreground_color>
-    <height>37</height>
-    <horizontal_alignment>0</horizontal_alignment>
-    <name>Example title</name>
-    <rules />
-    <scale_options>
-      <width_scalable>true</width_scalable>
-      <height_scalable>true</height_scalable>
-      <keep_wh_ratio>false</keep_wh_ratio>
-    </scale_options>
-    <scripts />
-    <show_scrollbar>false</show_scrollbar>
-    <text>Motor Examples:</text>
-    <tooltip></tooltip>
-    <transparent>true</transparent>
-    <vertical_alignment>0</vertical_alignment>
-    <visible>true</visible>
-    <widget_type>Label</widget_type>
-    <width>583</width>
-    <wrap_words>true</wrap_words>
-    <wuid>6c74ca29:13f53005f1e:101</wuid>
-    <x>12</x>
-    <y>96</y>
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
-    <actions hook="false" hook_all="false">
-      <action type="OPEN_DISPLAY">
-        <path>motor/00_demo_single_motor.opi</path>
-        <macros>
-          <include_parent_macros>true</include_parent_macros>
-        </macros>
-        <mode>0</mode>
-        <description></description>
-      </action>
-    </actions>
-    <border_alarm_sensitive>false</border_alarm_sensitive>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <border_style>0</border_style>
-    <border_width>1</border_width>
-    <enabled>true</enabled>
-    <font>
-      <opifont.name fontName="Cantarell" height="11" style="0">Default</opifont.name>
-    </font>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-    <foreground_color>
-      <color red="0" green="0" blue="0" />
-    </foreground_color>
-    <height>37</height>
-    <image></image>
-    <name>Action Button</name>
-    <push_action_index>0</push_action_index>
-    <pv_name></pv_name>
-    <pv_value />
-    <rules />
-    <scale_options>
-      <width_scalable>true</width_scalable>
-      <height_scalable>true</height_scalable>
-      <keep_wh_ratio>false</keep_wh_ratio>
-    </scale_options>
-    <scripts />
-    <style>1</style>
-    <text>Open Motor Example Screens</text>
-    <toggle_button>false</toggle_button>
-    <tooltip>Open Motor Example Screens</tooltip>
-    <visible>true</visible>
-    <widget_type>Action Button</widget_type>
-    <width>583</width>
-    <wuid>1e9c93df:147f5145c44:-7e5c</wuid>
-    <x>12</x>
-    <y>288</y>
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
-    <actions hook="false" hook_all="false" />
-    <auto_size>false</auto_size>
-    <background_color>
-      <color red="255" green="255" blue="255" />
-    </background_color>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <border_style>0</border_style>
-    <border_width>1</border_width>
-    <enabled>true</enabled>
-    <font>
-      <opifont.name fontName="Cantarell" height="11" style="0">Default</opifont.name>
-    </font>
-    <foreground_color>
-      <color red="0" green="0" blue="0" />
-    </foreground_color>
-    <height>133</height>
-    <horizontal_alignment>0</horizontal_alignment>
-    <name>Example description</name>
-    <rules />
-    <scale_options>
-      <width_scalable>true</width_scalable>
-      <height_scalable>true</height_scalable>
-      <keep_wh_ratio>false</keep_wh_ratio>
-    </scale_options>
-    <scripts />
-    <show_scrollbar>false</show_scrollbar>
-    <text>A set of opi screens to show the use of BOY to visulalize the controling of a set a motors.</text>
-    <tooltip></tooltip>
-    <transparent>true</transparent>
-    <vertical_alignment>0</vertical_alignment>
-    <visible>true</visible>
-    <widget_type>Label</widget_type>
-    <width>571</width>
-    <wrap_words>true</wrap_words>
-    <wuid>6c74ca29:13f5301bfa2:-1f29</wuid>
-    <x>18</x>
-    <y>144</y>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.RoundedRectangle" version="1.0.0">
     <actions hook="false" hook_all="false" />
@@ -357,14 +166,14 @@ $(pv_value)</tooltip>
       <color red="255" green="0" blue="0" />
     </foreground_color>
     <gradient>true</gradient>
-    <height>145</height>
+    <height>157</height>
     <horizontal_fill>true</horizontal_fill>
     <line_color>
       <color red="128" green="0" blue="255" />
     </line_color>
     <line_style>0</line_style>
     <line_width>0</line_width>
-    <name>Example background_1</name>
+    <name>Example background</name>
     <pv_name></pv_name>
     <pv_value />
     <rules />
@@ -374,15 +183,14 @@ $(pv_value)</tooltip>
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <scripts />
-    <tooltip>$(pv_name)
-$(pv_value)</tooltip>
+    <tooltip>Description</tooltip>
     <transparent>false</transparent>
     <visible>true</visible>
     <widget_type>Rounded Rectangle</widget_type>
-    <width>583</width>
-    <wuid>1e9c93df:147f5145c44:-7e4a</wuid>
-    <x>12</x>
-    <y>408</y>
+    <width>589</width>
+    <wuid>bd33f00:15487abb48d:-7f87</wuid>
+    <x>6</x>
+    <y>84</y>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
     <actions hook="false" hook_all="false" />
@@ -402,9 +210,9 @@ $(pv_value)</tooltip>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
-    <height>133</height>
+    <height>145</height>
     <horizontal_alignment>0</horizontal_alignment>
-    <name>Example description_1</name>
+    <name>Example description</name>
     <rules />
     <scale_options>
       <width_scalable>true</width_scalable>
@@ -413,22 +221,62 @@ $(pv_value)</tooltip>
     </scale_options>
     <scripts />
     <show_scrollbar>false</show_scrollbar>
-    <text>A set of opi screens to show the use of BOY to visualize the controlling of the temprature of a fish tank to keep the poor fish alive.</text>
+    <text>The beast alarm datasource provides access via channels to alarmserver information and functionality. 
+Users can create channels to any part of the alarm tree and embeded that information in OPI screens. By writting to these channels users can also directly acknowledge/unacknowledge or enable/disable alarms.
+e.g.
+beast://XF:31IDA-OP{Tbl-Ax:X1}Mtr_Alarm</text>
     <tooltip></tooltip>
     <transparent>true</transparent>
     <vertical_alignment>0</vertical_alignment>
     <visible>true</visible>
     <widget_type>Label</widget_type>
-    <width>571</width>
+    <width>577</width>
     <wrap_words>true</wrap_words>
-    <wuid>1e9c93df:147f5145c44:-7e49</wuid>
-    <x>18</x>
-    <y>414</y>
+    <wuid>bd33f00:15487abb48d:-7f86</wuid>
+    <x>12</x>
+    <y>90</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.VTableDisplay" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <background_color>
+      <color red="240" green="240" blue="240" />
+    </background_color>
+    <border_alarm_sensitive>true</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Cantarell" height="11" style="0">Default</opifont.name>
+    </font>
+    <foreground_color>
+      <color red="192" green="192" blue="192" />
+    </foreground_color>
+    <height>427</height>
+    <name>VTable Display</name>
+    <pv_name>beast://XF:31IDA-OP{Tbl-Ax:X1}Mtr_Alarm</pv_name>
+    <pv_result_prefix></pv_result_prefix>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <tooltip></tooltip>
+    <visible>true</visible>
+    <widget_type>VTable Display</widget_type>
+    <width>589</width>
+    <wuid>bd33f00:15487abb48d:-7f22</wuid>
+    <x>6</x>
+    <y>246</y>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
     <actions hook="false" hook_all="false">
       <action type="OPEN_DISPLAY">
-        <path>tank/demoHeater.opi</path>
+        <path>01_alarm_datasource.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -450,7 +298,56 @@ $(pv_value)</tooltip>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
-    <height>37</height>
+    <height>34</height>
+    <image></image>
+    <name>Action Button</name>
+    <push_action_index>0</push_action_index>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <style>1</style>
+    <text>Open next demo screen</text>
+    <toggle_button>false</toggle_button>
+    <tooltip>Open next demo screen</tooltip>
+    <visible>true</visible>
+    <widget_type>Action Button</widget_type>
+    <width>295</width>
+    <wuid>bd33f00:15487abb48d:-7eff</wuid>
+    <x>300</x>
+    <y>678</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>../main.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>0</mode>
+        <description></description>
+      </action>
+    </actions>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Cantarell" height="11" style="0">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>34</height>
     <image></image>
     <name>Action Button_1</name>
     <push_action_index>0</push_action_index>
@@ -464,55 +361,14 @@ $(pv_value)</tooltip>
     </scale_options>
     <scripts />
     <style>1</style>
-    <text>Open Tank Example Screens</text>
+    <text>Home</text>
     <toggle_button>false</toggle_button>
-    <tooltip>Open Tank Example Screens</tooltip>
+    <tooltip>Open next demo screen</tooltip>
     <visible>true</visible>
     <widget_type>Action Button</widget_type>
-    <width>583</width>
-    <wuid>1e9c93df:147f5145c44:-7e48</wuid>
-    <x>12</x>
-    <y>558</y>
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
-    <actions hook="false" hook_all="false" />
-    <auto_size>false</auto_size>
-    <background_color>
-      <color red="255" green="255" blue="255" />
-    </background_color>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <border_style>0</border_style>
-    <border_width>1</border_width>
-    <enabled>true</enabled>
-    <font>
-      <opifont.name fontName="Cantarell" height="13" style="1">Header 3</opifont.name>
-    </font>
-    <foreground_color>
-      <color red="0" green="0" blue="0" />
-    </foreground_color>
-    <height>37</height>
-    <horizontal_alignment>0</horizontal_alignment>
-    <name>Example title_1</name>
-    <rules />
-    <scale_options>
-      <width_scalable>true</width_scalable>
-      <height_scalable>true</height_scalable>
-      <keep_wh_ratio>false</keep_wh_ratio>
-    </scale_options>
-    <scripts />
-    <show_scrollbar>false</show_scrollbar>
-    <text>Tank Control Examples:</text>
-    <tooltip></tooltip>
-    <transparent>true</transparent>
-    <vertical_alignment>0</vertical_alignment>
-    <visible>true</visible>
-    <widget_type>Label</widget_type>
-    <width>583</width>
-    <wrap_words>true</wrap_words>
-    <wuid>1e9c93df:147f5145c44:-7e3e</wuid>
-    <x>12</x>
-    <y>348</y>
+    <width>295</width>
+    <wuid>bd33f00:15487abb48d:-7efe</wuid>
+    <x>6</x>
+    <y>678</y>
   </widget>
 </display>
